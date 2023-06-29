@@ -4,8 +4,7 @@
 # Created on: 30.03.2018
 
 import sys
-from urllib import urlencode
-from urlparse import parse_qsl
+from urllib.parse import urlencode, parse_qsl
 import xbmcgui
 import xbmcplugin
 
@@ -16,41 +15,23 @@ _handle = int(sys.argv[1])
 
 VIDEOS = [ 
     {'name': 'TVM',
-    'thumb': 'http://play.mv/stb/item/tvlive1/198.png',
-    'video': 'http://feed.play.mv/live/1000/10001/master.m3u8'},
+    'video': 'https://54.169.75.117:1935/live/livestream/playlist.m3u8'},
     {'name': 'RaajjeTV',
-    'thumb': 'http://play.mv/stb/item/tv_live1/199.png',
-    'video': 'http://feed.play.mv/live/1000/10005/master.m3u8'},
-    {'name': 'Channel 13 HD',
-    'thumb': 'http://play.mv/stb/item/tv_live1/200.png',
-    'video': 'http://feed.play.mv/live/1000/10003/master.m3u8'},
+    'video': 'https://stream.raajje.mv/live/rtv_live/index.m3u8'},
     {'name': 'Munnaaru',
-    'thumb': 'http://play.mv/stb/item/tvlive1/201.png',
-    'video': 'http://feed.play.mv/live/1002/10026/master.m3u8'},
+    'video': 'https://w1.viastreaming.net:1935/munnaar/live/playlist.m3u8'},
     {'name': 'VTV',
-    'thumb': 'http://play.mv/stb/item/tv_live1/202.png',
-    'video': 'http://feed.play.mv/live/1000/10006/master.m3u8'},
+    'video': 'https://vtvstream.vnews.mv/vtvlive/vmedia/playlist.m3u8'},
     {'name': 'YES',
-    'thumb': 'http://play.mv/stb/item/tv_live1/203.png',
-    'video': 'http://feed.play.mv/live/1000/10002/master.m3u8'},
-    {'name': 'MVtv HD',
-    'thumb': 'http://play.mv/stb/item/tvlive1/204.png',
-    'video': 'http://feed.play.mv/live/1006/10065/master.m3u8'},
-    {'name': 'SanguTV HD',
-    'thumb': 'http://play.mv/stb/item/tv_live1/213.png',
-    'video': 'http://feed.play.mv/live/1001/10012/master.m3u8'},
+    'video': 'https://w1.viastreaming.net:1935/yestv/live/playlist.m3u8'},
     {'name': 'SunTV',
-    'thumb': 'http://play.mv/stb/item/tvlive1/233.png',
-    'video': 'http://feed.play.mv/live/1001/10017/master.m3u8'},
-    {'name': 'GO Plus HD',
-    'thumb': 'http://play.mv/stb/item/tvlive1/344.png',
-    'video': 'http://feed.play.mv/live/1007/10079/master.m3u8'},
-    {'name': 'PSM News HD',
-    'thumb': 'http://play.mv/stb/item/tvlive1/352.png',
-    'video': 'http://feed.play.mv/live/1006/10066/master.m3u8'},
-    {'name': 'Al Kaun HD',
-    'thumb': 'http://play.mv/stb/item/tvlive1/355.png',
-    'video': 'http://feed.play.mv/live/1005/10053/master.m3u8'}
+    'video': 'https://sstv.ssplay.mv/hls/sstv-live/index.m3u8'},
+    {'name': 'PSM News',
+    'video': 'https://ec2-54-254-194-192.ap-southeast-1.compute.amazonaws.com:1935/live/smil:newslive.smil/playlist.m3u8'},
+    {'name': 'Maldives TV',
+    'video': 'https://58bdd3c8ef31c.streamlock.net/live/smil:maldivestv.smil/playlist.m3u8'},
+    {'name': 'Majlis TV',
+    'video': 'https://fl1.viastreaming.net:1935/majlis/livestream/playlist.m3u8'}
 ]
 
 
@@ -100,7 +81,7 @@ def list_videos():
         # Set graphics (thumbnail, fanart, banner, poster, landscape etc.) for the list item.
         # Here we use the same image for all items for simplicity's sake.
         # In a real-life plugin you need to set each image accordingly.
-        list_item.setArt({'thumb': video['thumb'], 'icon': video['thumb'], 'fanart': video['thumb']})
+        # list_item.setArt({'thumb': video['thumb'], 'icon': video['thumb'], 'fanart': video['thumb']})
         # Set 'IsPlayable' property to 'true'.
         # This is mandatory for playable items!
         list_item.setProperty('IsPlayable', 'true')
